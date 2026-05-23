@@ -1,6 +1,14 @@
 ---
 name: social-video-script-creator
-description: Turn a raw idea, X post, YouTube transcript, article, news item, rough notes, or reference document into a structured self-media video spoken script through a brief-first workflow. Use when the user wants AI to act like an Account/Strategist before writing: clarify intent, create and score a content brief, research the topic, propose outline options, draft a Chinese口播稿, and review it against brief, sources, usefulness, and AI-flavor standards. This skill focuses on video script creation and does not create video design, HyperFrames handoff, animation, or rendered video.
+description: >
+  Turn a raw idea, X post, YouTube transcript, article, news item, rough notes,
+  or reference document into a structured self-media video spoken script through
+  a brief-first workflow. Use when the user wants AI to act like an
+  Account/Strategist before writing: clarify intent, create and score a content
+  brief, research the topic, propose outline options, draft a Chinese口播稿, and
+  review it against brief, sources, usefulness, and AI-flavor standards. This
+  skill focuses on video script creation and does not create video design,
+  HyperFrames handoff, animation, or rendered video.
 ---
 
 # Social Video Script Creator
