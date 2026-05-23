@@ -8,7 +8,7 @@
 
 ## What Is This?
 
-`social-video-script-creator` is a script creation skill for self-media creators. It treats every script request like a lightweight creative brief: before writing, the agent clarifies the creator's intent, audience, point of view, source material, research needs, and quality bar.
+`social-video-script-creator` is a script creation skill for Chinese self-media creators. It treats every script request like a lightweight creative brief: before writing, the agent preserves the source material locally, clarifies the creator's intent, audience, point of view, research needs, and quality bar.
 
 It is designed for creators who often start from:
 
@@ -18,34 +18,36 @@ It is designed for creators who often start from:
 - articles, news, tutorials, product updates, or rough notes
 - multiple reference materials that need synthesis
 
-The final goal is a usable Chinese spoken script, not a video production package.
+The final goal is a usable Chinese spoken script, not a video production package. All generated project artifacts are Chinese-first.
 
 ## Core Ideas
 
-- **Brief before writing** — the agent first acts like an Account/Strategist, not a copywriter.
-- **Score the brief** — weak inputs are not hidden; the skill gives a readiness score and warns when it is continuing with assumptions.
-- **Research before structure** — current events, public claims, creator discourse, and outside references should be checked before outlining.
-- **Outline before script** — the agent proposes 2-3 routes, recommends one, and pauses before drafting.
+- **Source material before brief** — the agent must create `source-material.md` before building the brief.
+- **Brief as the master document** — `content-brief.md` accumulates source summary, user answers, research insights, final outline, and next step.
+- **Hard checkpoints** — every stage stops for user confirmation; a high brief score never bypasses confirmation.
+- **Research before structure** — current events, public claims, creator discourse, and outside references are checked before outlining.
+- **Outline before script** — the agent proposes 2-3 routes, recommends one, waits for selection, then writes the final outline back into the brief.
 - **口播 comes first** — scripts should sound natural when spoken, not like reports or generic AI essays.
 - **Review is a gate** — final output is checked for brief alignment, source risk, audience value, structure, and AI-flavor.
 
 ## Workflow
 
 ```text
-Phase 1  Input intake
-Phase 2  Build and score content-brief.md
-Phase 3  Research and create research-pack.md
-Phase 4  Propose outline-options.md and confirm route
-Phase 5  Write script.md
-Phase 6  Review with content-review.md
+Phase 1  Create source-material.md, then stop at the brief gate
+Phase 2  Build and score content-brief.md, then stop for confirmation
+Phase 3  Research, create research-pack.md, write key findings back to content-brief.md, then stop
+Phase 4  Propose outline-options.md, then stop for route selection
+Phase 5  Write the final outline back to content-brief.md, then stop
+Phase 6  Write script.md, then stop before review
+Phase 7  Review with content-review.md
 ```
 
 ## Generated Output
 
 ```text
 my-script-project/
-├── source-material.md       # optional preserved source material
-├── content-brief.md         # brief, missing context, score, assumptions
+├── source-material.md       # required local source center
+├── content-brief.md         # cumulative master brief, score, next step
 ├── research-pack.md         # source links, discourse signals, fact/opinion/inspiration split
 ├── outline-options.md       # 2-3 routes and recommendation
 ├── script.md                # Chinese spoken script

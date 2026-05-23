@@ -1,176 +1,175 @@
-# Brief
+# Brief 主文档
 
-`content-brief.md` is the first quality gate. It translates loose input into a self-media creative brief before any scriptwriting starts.
+`content-brief.md` 是本 skill 的主文档。它不是一次性 brief，而是从素材入库开始，随着用户补充、调研、大纲确认和写稿推进不断累积更新。
 
-The agent's role here is Account/Strategist: understand the material, clarify intent, identify missing context, and decide whether the project is ready to move forward.
+所有内容默认使用中文。
 
-## Intake Classification
+## 素材中心规则
 
-Classify the user input before writing the brief:
+创建 brief 前必须先创建或更新 `source-material.md`。不能只在对话里总结，也不能只在 brief 里放链接。
 
-| Input type | How to handle |
-|---|---|
-| One-line idea | Treat as a topic spark; ask for motivation, POV, audience, and references. |
-| X post / social post | Capture the claim, context, author, reactions if available, and why the creator noticed it. |
-| YouTube transcript /口播稿 | Identify the main argument, examples, usable lines, and what can be transformed. |
-| Article / news | Separate factual reporting, interpretation, and potential creator angle. |
-| Tutorial / tool update | Identify user problem, workflow, novelty, proof, and demonstration needs. |
-| Multiple references | Build a synthesis brief; mark conflicts and source hierarchy. |
-
-## `content-brief.md` Template
+`source-material.md` 必须包含：
 
 ```markdown
-# Content Brief
+# 素材中心
 
-## Input Snapshot
+## 用户原始输入
 
-- Source type:
-- Source boundary:
-- One-sentence topic:
-- What is confirmed:
-- What is uncertain:
+<完整保留用户这次发来的内容，不要只摘要>
 
-## Creator Intent
+## 素材索引
 
-- Why I picked this topic:
-- My current POV:
-- Desired audience takeaway:
-- Desired audience action:
-- Personal experience / authority:
+| id | 类型 | 原始地址/来源 | 本地内容状态 | 说明 |
+|---|---|---|---|---|
+| S1 | X 推文 / 文章 / 字幕 / 新闻 / 用户想法 | <url 或用户输入> | 已全文保存 / 已摘录 / 无法读取 / 用户提供 | <限制说明> |
 
-## Audience and Platform
+## S1 - <素材标题或来源>
 
-- Target audience:
-- Audience current belief / pain:
-- Platform:
-- Format / target length:
-- Tone:
+- 原始地址：
+- 获取状态：
+- 使用边界：
 
-## Strategic Core
+### 正文 / 摘录 / 字幕 / 用户笔记
 
-- Content objective:
-- Core tension:
-- Working insight:
-- Single-minded content promise:
-- Key proof / examples:
-- Red lines / constraints:
-
-## Missing Context Questions
-
-1. <question that materially changes the direction>
-2. <question that materially changes the direction>
-
-## Readiness Score
-
-| Dimension | Max | Score | Notes |
-|---|---:|---:|---|
-| Topic / source clarity | 15 |  |  |
-| User motivation and POV | 15 |  |  |
-| Target audience | 15 |  |  |
-| Platform / format / length | 10 |  |  |
-| Content objective | 15 |  |  |
-| Core tension or insight | 15 |  |  |
-| References / evidence / examples | 10 |  |  |
-| Constraints, red lines, tone | 5 |  |  |
-| **Total** | **100** |  |  |
-
-## Readiness Verdict
-
-- Status: ready / assumption-based / not-ready
-- Reason:
-- Assumptions if continuing:
-- Warnings:
+<尽可能保存可读取的原文、正文摘录、字幕、用户笔记或获取失败说明>
 ```
 
-## Scoring Standards
+如果网页、X、视频无法读取全文，要写清楚：
 
-### Topic / source clarity - 15
+- 当前无法读取的原因。
+- 已经拿到的内容是什么。
+- 需要用户补充什么。
+- 是否找到了替代来源。
 
-- `13-15`: Source and topic boundary are clear; no confusion about what is being discussed.
-- `8-12`: Topic is understandable but source context or scope is incomplete.
-- `0-7`: Only a vague idea or unclear source is available.
+## `content-brief.md` 模板
 
-### User motivation and POV - 15
+```markdown
+# 内容 Brief
 
-- `13-15`: The creator's reason, stance, and personal angle are clear.
-- `8-12`: Motivation exists but POV is generic or weak.
-- `0-7`: No clear reason why this creator should talk about it.
+## 当前状态
 
-### Target audience - 15
+- 阶段：素材入库 / 初版 brief / 待用户补充 / 调研完成 / 待选大纲 / 最终大纲已确认 / 待写稿 / 已写稿 / 已审核
+- Brief 版本：
+- 最后更新：
+- Next Step：
 
-- `13-15`: Audience is concrete, with current belief/pain and level of knowledge.
-- `8-12`: Audience category is named but psychology is thin.
-- `0-7`: Audience is "everyone" or absent.
+## 1. 素材与边界
 
-### Platform / format / length - 10
+- 本地素材中心：[`source-material.md`](./source-material.md)
+- 原始链接：
+- 可用素材：
+- 不可用或待补素材：
+- 当前内容边界：
 
-- `8-10`: Platform, format, and rough length are known.
-- `4-7`: One or two are known.
-- `0-3`: No delivery context.
+## 2. 用户意图
 
-### Content objective - 15
+- 为什么选择这个主题：
+- 用户当前立场 / 个人 POV：
+- 希望观众看完记住：
+- 希望观众看完采取的动作：
+- 用户的经验、身份或可信度来源：
 
-- `13-15`: Clear desired outcome: inform, teach, persuade, warn, critique, or inspire action.
-- `8-12`: General goal exists but is hard to evaluate.
-- `0-7`: No clear job for the content.
+## 3. 受众与平台
 
-### Core tension or insight - 15
+- 目标受众：
+- 观众当前认知 / 痛点：
+- 平台：
+- 目标时长：
+- 语气：
 
-- `13-15`: There is a strong conflict, misconception, surprise, or human truth.
-- `8-12`: There is an angle but not yet sharp.
-- `0-7`: The content is only descriptive.
+## 4. 策略核心
 
-### References / evidence / examples - 10
+- 内容目标：
+- 核心冲突：
+- 工作洞察：
+- 单一内容承诺：
+- 关键证据 / 例子：
+- 禁区 / 约束：
 
-- `8-10`: Source, examples, evidence, or personal tests are available.
-- `4-7`: Some references exist but need expansion or verification.
-- `0-3`: No support beyond assertion.
+## 5. 缺失信息与必须确认的问题
 
-### Constraints, red lines, tone - 5
+1. <会影响方向的问题>
+2. <会影响方向的问题>
 
-- `4-5`: Tone and forbidden claims/positions are clear.
-- `2-3`: Some tone preference exists.
-- `0-1`: No constraints.
+## 6. Brief Readiness Score
 
-## Thresholds
+| 维度 | 满分 | 得分 | 说明 |
+|---|---:|---:|---|
+| 选题 / 素材清晰度 | 15 |  |  |
+| 用户动机与 POV | 15 |  |  |
+| 目标受众 | 15 |  |  |
+| 平台 / 形式 / 时长 | 10 |  |  |
+| 内容目标 | 15 |  |  |
+| 核心冲突或洞察 | 15 |  |  |
+| 参考 / 证据 / 例子 | 10 |  |  |
+| 约束、红线、语气 | 5 |  |  |
+| **总分** | **100** |  |  |
 
-- `80-100`: Ready for research and outline.
-- `65-79`: Usable, but warn the user what assumptions will be made.
-- `<65`: Ask more questions before continuing.
+## 7. 调研回写
 
-The user can override and continue, but all later outputs must be labeled assumption-based.
+- 核心发现：
+- 可用亮点：
+- 争议 / 反方：
+- 可借鉴结构：
+- 可用金句 / 表达：
+- 事实风险：
+- 详细来源：[`research-pack.md`](./research-pack.md)
 
-## Critical Missing Fields
+## 8. 最终大纲回写
 
-Always warn if any of these are missing:
+- 选定路线：
+- Hook：
+- 核心洞察：
+- 逐段结构：
+- 关键例子：
+- 结尾动作：
+- 详细选项：[`outline-options.md`](./outline-options.md)
 
-- No clear audience.
-- No creator POV.
-- No content objective.
-- Topic depends on current facts but has no source or search permission.
-- User asks for a strong claim without evidence.
+## 9. 下一步
 
-## Good Brief Questions
+- Next Step：
+- 等待用户确认：
+```
 
-Ask only questions that materially change the work:
+## 评分标准
 
-- Why did this topic catch your attention now?
-- What do you personally agree or disagree with in the source?
-- Who is this for: beginners, practitioners, clients, peers, or fans?
-- What should the audience be able to do or think after watching?
-- Is this a hot take, tutorial, news explanation, case teardown, or personal method?
-- Are there creators, posts, videos, or articles you want me to compare against?
-- What must not be changed, exaggerated, or mentioned?
-- How sharp can the tone be?
+- `80-100`：信息足够进入下一阶段，但仍必须让用户确认 brief。
+- `65-79`：可以继续，但必须明确写出假设和风险。
+- `<65`：不应继续；除非用户明确覆盖，否则先补问题。
 
-## Minimum Viable Brief
+任何情况下，分数不能替代用户确认。
 
-Before outline, at least these must be known or explicitly assumed:
+## 关键缺失项
 
-- Topic boundary.
-- Creator POV.
-- Audience.
-- Content objective.
-- Platform or target length.
-- Core tension or working insight.
-- Evidence/source plan.
+缺少以下任一项，都必须在 brief 中警告并向用户提问：
+
+- 没有清楚目标受众。
+- 没有用户个人 POV。
+- 没有内容目标。
+- 选题依赖实时事实，但没有来源或搜索结果。
+- 用户想表达强判断，但没有证据。
+- 没有保存本地素材中心。
+
+## 好问题标准
+
+只问会改变内容方向的问题，例如：
+
+- 你为什么现在想讲这个选题？
+- 你最同意或最不同意原文的哪一点？
+- 这条内容主要给新手、从业者、客户、同行，还是普通观众看？
+- 观众看完应该改变什么判断或做什么动作？
+- 这是观点评论、教程、新闻解释、案例拆解，还是个人方法论？
+- 有没有其他创作者、视频或文章需要对照？
+- 哪些观点、人物、品牌、事实不能改、不能夸张或不能提？
+- 语气可以多尖锐？
+
+## 强制停止
+
+创建或更新 `content-brief.md` 后必须停下，向用户展示：
+
+- brief 当前判断。
+- readiness score。
+- 必须确认的问题。
+- `Next Step`。
+
+不能在同一轮继续搜索、写大纲或写稿。

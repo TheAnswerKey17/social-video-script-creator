@@ -1,146 +1,116 @@
-# Review
+# 审核
 
-`content-review.md` is the final quality gate. It decides whether the script is ready, draft-only, or blocked.
+`content-review.md` 是最终质量闸门，用来判断逐字稿是否可以继续使用、只能作为草稿，还是必须返工。
 
-## Review Inputs
+所有内容默认使用中文。
 
-Review against:
+## 审核输入
 
+审核必须对照：
+
+- `source-material.md`
 - `content-brief.md`
-- `research-pack.md` if present
+- `research-pack.md`，如果存在
 - `outline-options.md`
 - `script.md`
-- User confirmations and assumptions
+- 用户在各断点的确认和修改意见
 
-## `content-review.md` Template
+## `content-review.md` 模板
 
 ```markdown
-# Content Review
+# 内容审核
 
-## Verdict
+## 结论
 
-- Status: ready / usable-for-draft-only / blocked
-- Main reason:
-- Minimum fixes:
+- 状态：ready / usable-for-draft-only / blocked
+- 主要原因：
+- 最小修改项：
 
-## Brief Alignment
+## Brief 对齐
 
-| brief element | status | note |
+| brief 元素 | 状态 | 说明 |
 |---|---|---|
-| Audience | pass/warn/fail |  |
-| Creator POV | pass/warn/fail |  |
-| Content objective | pass/warn/fail |  |
-| Core tension / insight | pass/warn/fail |  |
-| Platform / length | pass/warn/fail |  |
-| Tone / red lines | pass/warn/fail |  |
+| 目标受众 | pass / warn / fail |  |
+| 用户 POV | pass / warn / fail |  |
+| 内容目标 | pass / warn / fail |  |
+| 核心冲突 / 洞察 | pass / warn / fail |  |
+| 平台 / 时长 | pass / warn / fail |  |
+| 语气 / 红线 | pass / warn / fail |  |
 
-## Research and Source Use
+## 来源与事实
 
-| claim/source need | status | note |
+| claim / 来源需求 | 状态 | 说明 |
 |---|---|---|
-| <claim> | confirmed/needs-source/opinion/risky | <note> |
+| <claim> | confirmed / needs-source / opinion / risky | <说明> |
 
-## Audience Value
+## 观众价值
 
-- Clear viewer payoff: pass/warn/fail
-- Practical usefulness: pass/warn/fail
-- Differentiation from generic summary: pass/warn/fail
-- Strongest useful moment:
-- Weakest or most generic moment:
+- 观众收益是否清楚：pass / warn / fail
+- 是否有实用价值：pass / warn / fail
+- 是否区别于普通摘要：pass / warn / fail
+- 最强的一段：
+- 最弱或最泛的一段：
 
-## Structure and口播
+## 结构与口播
 
-- Hook: pass/warn/fail
-- Flow: pass/warn/fail
-- Examples: pass/warn/fail
-- Ending: pass/warn/fail
-- Spoken naturalness: pass/warn/fail
+- Hook：pass / warn / fail
+- 推进：pass / warn / fail
+- 例子：pass / warn / fail
+- 结尾：pass / warn / fail
+- 口播自然度：pass / warn / fail
 
-## AI Flavor Check
+## AI 味检查
 
-- Fake empathy: pass/warn/fail
-- Hollow profundity: pass/warn/fail
-- Self-importance: pass/warn/fail
-- Template-heavy phrasing: pass/warn/fail
-- Empty parallelism: pass/warn/fail
-- Lines to revise:
+- 假共情：pass / warn / fail
+- 假深刻：pass / warn / fail
+- 自我加权：pass / warn / fail
+- 模板化表达：pass / warn / fail
+- 空排比：pass / warn / fail
+- 需要改写的句子：
 
-## Assumptions and Risks
+## 假设与风险
 
-- Assumptions made:
-- Factual risks:
-- Tone risks:
-- Missing material:
+- 已采用的假设：
+- 事实风险：
+- 语气风险：
+- 缺失素材：
 
-## Recommended Fixes
+## 修改建议
 
-1. <specific fix>
-2. <specific fix>
+1. <具体修改>
+2. <具体修改>
 ```
 
-## Verdict Rules
+## 状态判断
 
-Use `ready` only when:
+`ready`：
 
-- The script matches the brief.
-- Factual claims are confirmed, clearly framed as opinion, or safely caveated.
-- The hook and structure are usable.
-- The script sounds speakable.
-- No critical AI-flavor issue remains.
+- 稿件符合 brief。
+- 事实 claim 有来源、是明确观点，或已安全标注。
+- hook 和结构可用。
+- 口播自然。
+- 没有严重 AI 味。
 
-Use `usable-for-draft-only` when:
+`usable-for-draft-only`：
 
-- The concept and structure are useful, but some assumptions, sources, or examples still need confirmation.
-- The script can be discussed internally but should not be published as-is.
-- The topic is not high-risk and missing claims are not central to the argument.
+- 结构和方向可用，但仍有来源、例子或假设需要确认。
+- 可以内部讨论，但不建议直接发布。
 
-Use `blocked` when:
+`blocked`：
 
-- The main argument depends on an unverified or risky claim.
-- The script does not match the confirmed brief or creator POV.
-- The audience, objective, or platform was never resolved and assumptions would distort the work.
-- The script contains serious AI flavor that would require rewriting.
-- The research contradicts the proposed angle and the script ignores that contradiction.
+- 主论点依赖未确认或高风险 claim。
+- 稿件不符合已确认 brief 或用户 POV。
+- 受众、目标或平台没有解决，导致写稿方向失真。
+- AI 味严重，需要重写。
+- 调研已经推翻原角度，但脚本没有修正。
 
-## On-Brief Questions
+## 审核后的停止
 
-Ask:
+生成 `content-review.md` 后必须停下，给用户简短汇报：
 
-- Does the script serve the selected audience?
-- Does it express the creator's POV, not just a neutral summary?
-- Does it deliver the promised viewer payoff?
-- Does it use research to sharpen the angle?
-- Does it avoid claims the brief marked as red lines or risky?
+- 当前状态。
+- 最强部分。
+- 最大风险。
+- 下一步建议。
 
-## Audience Value Questions
-
-Ask:
-
-- What does the viewer get that they would not get from reading the original source?
-- Is there at least one concrete takeaway, example, warning, or method?
-- Is the content specific enough to be memorable?
-- Does it respect the viewer's time?
-
-## AI Flavor Fixing
-
-When AI flavor appears, do not merely label it. Rewrite the specific lines or list exact replacements.
-
-Examples:
-
-| Weak line | Better direction |
-|---|---|
-| "在这个快速变化的时代..." | Start with the specific event or problem. |
-| "这背后的底层逻辑是..." | State the mechanism directly. |
-| "你是不是也经常..." | Use a concrete creator experience or observed problem. |
-| "总结一下..." | End with the practical takeaway or memory point. |
-
-## Final Reporting
-
-When reporting back to the user, include:
-
-- Final status.
-- The strongest part of the script.
-- The biggest remaining risk.
-- The next recommended action.
-
-If status is `blocked`, do not present the script as ready to publish.
+如果是 `blocked`，不能说稿件可以发布。

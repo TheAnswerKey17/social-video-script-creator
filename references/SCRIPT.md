@@ -1,145 +1,91 @@
-# Script
+# 中文口播逐字稿
 
-`script.md` is the spoken draft. It should sound like a real creator explaining something useful, not like a report, press release, or generic AI essay.
+`script.md` 是最终中文口播逐字稿。它必须基于用户确认后的 `content-brief.md`，不能直接从原始输入跳到写稿。
 
-## Required Inputs
+所有内容默认使用中文。
 
-Before writing:
+## 写稿前必须满足
 
-- `content-brief.md`
-- `outline-options.md`
-- `research-pack.md` when research was required/performed
-- User route confirmation or explicit autonomous-continuation assumption
+写 `script.md` 前必须确认：
 
-Do not write the final script from raw input alone unless the user explicitly overrides the workflow.
+- `source-material.md` 已存在。
+- `content-brief.md` 已更新到最终大纲。
+- 用户已经确认最终路线和 brief。
+- 如涉及事实、新闻或外部观点，`research-pack.md` 已存在。
+- `content-brief.md` 的 `Next Step` 是“撰写中文口播逐字稿”。
 
-## `script.md` Template
+不满足这些条件时，不写稿，先回到对应断点。
+
+## `script.md` 模板
 
 ```markdown
-# Script
+# 中文口播逐字稿
 
-> Status: draft / final-candidate / assumption-based
-> Route:
-> Platform:
-> Target length:
-> Source caveats:
+> 状态：draft / final-candidate / assumption-based
+> 路线：
+> 平台：
+> 目标时长：
+> 来源风险：
 
-<spoken script starts here>
+<中文口播逐字稿从这里开始>
 
 ---
 
-<next spoken beat>
+<下一个口播 beat>
 ```
 
-The body should contain only speakable content plus simple beat separators. Avoid stage directions unless the user explicitly wants them.
+正文只写能说出口的内容。不要写视觉说明、分镜、舞台提示或制作建议，除非用户明确要求。
 
-## Spoken Chinese Standards
+## 中文口播标准
 
-- Use natural spoken Chinese, not written-report Chinese.
-- Prefer short sentences.
-- Use "我", "你", "我们" when it fits the creator voice.
-- Make abstract points concrete with examples.
-- Keep transitions conversational.
-- Let structure be felt through flow, not announced through "first/second/finally" unless the tutorial format truly needs it.
-- Use `---` to separate beats when it helps review, editing, or later video planning.
+- 说人话，不写报告腔。
+- 句子短，适合读出口。
+- 能用“我 / 你 / 我们”时，不要总写“用户 / 读者 / 受众”。
+- 抽象观点要配具体例子。
+- 结构要自然推进，不靠“首先其次最后”硬撑。
+- 用 `---` 切 beat，一个 beat 只承载一个完整想法。
 
-## Information Fidelity
+## 信息保真
 
-Preserve:
+必须保留：
 
-- Named people, products, companies, tools, and events that matter.
-- Key numbers, dates, comparisons, and claims.
-- The argument chain: premise, evidence, conclusion, caveat.
-- Counterarguments or limitations that prevent overclaiming.
+- 关键人物、产品、公司、工具、事件。
+- 关键数字、日期、对比、结论。
+- 论证链：前提、证据、结论、限制条件。
+- 重要反方和 caveat。
 
-When a claim is unverified, mark it in a non-disruptive way:
+未确认事实不能写成确定事实。可以写：
 
-- "这里还需要再确认一个来源..."
-- "如果这个数据成立..."
-- "目前我能确认的是..."
+- “这个说法还需要再确认来源。”
+- “如果这个数据成立，真正值得注意的是……”
+- “目前能确认的是……”
 
-Do not make uncertain claims sound confirmed.
+## 去 AI 味规则
 
-## Low AI-Flavor Rules
+删掉这些高频 AI 腔：
 
-Remove these patterns:
+- 假共情：“我知道你一定……”“你是不是也……”
+- 假深刻：“本质上”“底层逻辑”“真正可怕的是”
+- 自我加权：“我必须认真说一句”“这会颠覆你的认知”
+- 模板词：“在这个时代”“赋能”“闭环”“生态”乱用
+- 空排比：三句看似有气势但没有信息量的话
 
-### Fake empathy
+判断标准：这句话真人会不会这样说？不会就改。
 
-Avoid:
+## 基本结构
 
-- "我知道你一定..."
-- "你是不是也..."
-- "你的感受是被看见的..."
+一篇强口播稿通常包含：
 
-Use specific experience instead:
+1. **冷开场**：具体反差、悬念或收益。
+2. **背景**：发生了什么，观众为什么要听。
+3. **用户 POV**：你为什么这样看。
+4. **主体论证 / 方法**：2-4 个聚焦段落。
+5. **证据或例子**：案例、测试、引用、数据、对比。
+6. **观众收益**：他看完能改变什么。
+7. **收尾**：有记忆点，不做空泛总结。
 
-- "这个坑我自己踩过。"
-- "我第一次看到也以为只是..."
+## 写完后的停止
 
-### Hollow profundity
+写完 `script.md` 后必须停下，询问用户是否进入最终审核。
 
-Avoid packaging ordinary points with:
-
-- "本质上"
-- "底层逻辑"
-- "恰恰相反"
-- "真正可怕的是"
-
-Use the direct point if it is strong. If it becomes weak after removing the phrase, improve the point.
-
-### Self-importance
-
-Avoid:
-
-- "我必须认真说一句"
-- "接下来这段很重要"
-- "这会颠覆你的认知"
-
-Just say the useful thing.
-
-### Template-heavy writing
-
-Avoid overusing:
-
-- "首先 / 其次 / 最后"
-- "总结一下"
-- "一句话说"
-- "在这个时代"
-- "赋能 / 抓手 / 闭环 / 生态" unless the topic genuinely requires industry jargon.
-
-### Empty parallelism
-
-Avoid three-line slogan stacks that sound good but add no information.
-
-## Script Shape
-
-A strong script usually includes:
-
-1. **Cold open**: A specific surprise, tension, or promise.
-2. **Context**: What happened or what the viewer needs to know.
-3. **Creator POV**: Why this matters from the creator's perspective.
-4. **Main argument / tutorial path**: 2-4 focused beats.
-5. **Evidence or example**: Concrete case, test, quote, data, or comparison.
-6. **Practical takeaway**: What the audience should do, notice, avoid, or remember.
-7. **Close**: A clean ending, not a generic summary.
-
-Adjust this shape for the chosen outline route.
-
-## Platform Notes
-
-- **Bilibili / YouTube**: Can build a layered argument; allow more context and examples.
-- **Douyin / 视频号 / Shorts**: Start faster, reduce setup, use one main point.
-- **Xiaohongshu**: Make the viewer payoff and practical steps more visible.
-- **Podcast / long audio**: Add signposting and recap, but keep it conversational.
-
-## Self-Revision Pass
-
-Before handing off:
-
-- Read the first 15 seconds. Does it start with value or tension?
-- Read every transition aloud. Does it sound like a person?
-- Remove empty setup and generic summary.
-- Check every factual claim against the source status.
-- Check whether the script still matches the selected route.
-- Cut or rewrite any sentence that could appear in any generic AI script.
+不能在同一轮自动生成 `content-review.md`。

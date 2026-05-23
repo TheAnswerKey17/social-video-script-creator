@@ -1,144 +1,147 @@
 ---
 name: social-video-script-creator
 description: >
-  Turn a raw idea, X post, YouTube transcript, article, news item, rough notes,
-  or reference document into a structured self-media video spoken script through
-  a brief-first workflow. Use when the user wants AI to act like an
-  Account/Strategist before writing: clarify intent, create and score a content
-  brief, research the topic, propose outline options, draft a Chinese口播稿, and
-  review it against brief, sources, usefulness, and AI-flavor standards. This
-  skill focuses on video script creation and does not create video design,
-  HyperFrames handoff, animation, or rendered video.
+  将一句选题灵感、X 推文、YouTube 字幕、文章、新闻、教程、粗略笔记或参考资料，
+  通过 brief-first 工作流转化为中文自媒体视频口播逐字稿。使用时 AI 必须先像
+  Account/Strategist 一样整理素材中心、生成并评分 content-brief.md、在每个关键节点
+  停下向用户确认，再进行调研、大纲、逐字稿和审核。本 skill 以 content-brief.md 为
+  核心累积文档，所有项目产物默认使用中文；不负责视频设计、HyperFrames handoff、
+  动画、音频、HTML/CSS/GSAP 或最终视频渲染。
 ---
 
 # Social Video Script Creator
 
-This skill is a **brief-first self-media video script creation harness**. It helps a creator turn loose material into a usable spoken script while keeping every step anchored to intent, evidence, audience value, and review standards.
+这是一个 **以 brief 为核心的中文自媒体视频口播稿创作 skill**。它不是一上来写文案，而是先把用户输入的灵感、链接、字幕、文章或资料整理成可追踪的素材中心，再逐步补充 brief、调研、大纲、脚本和审核。
 
-Default mode: **files + conversation**. Write stage artifacts as Markdown files, but pause in conversation at decision gates.
+默认模式：**文件 + 对话确认**。每个阶段都要写入 Markdown 文件，并在强制断点停下，等待用户确认后才能进入下一阶段。
 
-## Scope
+## 最高规则
 
-Use this skill for:
+- **所有项目产物默认用中文写**：`source-material.md`、`content-brief.md`、`research-pack.md`、`outline-options.md`、`script.md`、`content-review.md` 都必须以中文为主。
+- **`content-brief.md` 是主文档**：它不是一次性文件，而是从素材、用户补充、调研、最终大纲到下一步状态持续累积更新。
+- **不能一次性跑完整流程**：除非用户在每个断点之后明确回复继续，否则不得直接从 brief 跳到 research、outline、script 或 review。
+- **任何评分都不能绕过确认**：即使 brief 得分是 90 分，也必须停下让用户确认 brief 内容和缺失信息。
+- **不得只把链接放进 brief**：原文、摘录、字幕、用户原始输入、可读取的网页正文或获取失败说明，必须先写入 `source-material.md`。
+- **最终目标是中文口播逐字稿**：不要输出视频设计、视觉方案、HyperFrames handoff、动画或渲染内容。
 
-- One-line ideas, topic sparks, rough notes, articles, X posts, news, transcripts, tutorials, reference docs, or mixed source packs.
-- Self-media content about industry news, creator techniques, tool updates, tutorials, observations, and personal takes.
-- Chinese spoken scripts for platforms such as Bilibili, YouTube, video accounts, Xiaohongshu, Douyin, podcasts, or creator newsletters.
-
-Do not use this skill to:
-
-- Create video design systems, HyperFrames handoff docs, animations, HTML/CSS/GSAP, audio, or rendered videos.
-- Fabricate facts, quotes, audience reactions, screenshots, metrics, or source claims.
-- Skip brief and research gates when the topic depends on current facts or public claims.
-
-## Standard Artifact Set
-
-Create or update these files for a project:
+## 标准产物
 
 ```text
-content-brief.md      # intake, account-style brief, readiness score, assumptions
-research-pack.md      # external/source research, discourse, inspiration, source links
-outline-options.md    # 2-3 routes, recommendation, discussion checkpoint
-script.md             # final or draft spoken Chinese script
-content-review.md     # on-brief, source, usefulness, structure, and AI-flavor QA
+source-material.md    # 素材中心：用户原始输入、原文/摘录/字幕、链接、本地索引、获取限制
+content-brief.md      # 主 brief：持续累积素材摘要、目标、问题、调研洞察、最终大纲、next step
+research-pack.md      # 调研包：来源、原文摘录、观点、评论、金句、结构灵感、事实状态
+outline-options.md    # 大纲选项：2-3 个讲法路线、推荐路线、需要用户确认的问题
+script.md             # 中文口播逐字稿
+content-review.md     # 最终审核：on brief、事实风险、口播自然度、AI 味、可用状态
 ```
 
-If the user provides original material, preserve it as `source-material.md` or a clearly named source file when useful.
+## 强制断点协议
 
-## Workflow
+每个阶段结束时都必须停止，不能继续执行下一阶段。
 
-### Phase 1 - Input Intake
+| 阶段 | 必须完成 | 停下时必须问 |
+|---|---|---|
+| 1. 素材入库 | 创建/更新 `source-material.md`，保存原始输入和可获取素材 | 是否认可素材边界？是否还有补充资料？ |
+| 2. 初版 brief | 创建/更新 `content-brief.md`，包含评分、缺失问题和 `Next Step` | brief 架构是否准确？请回答哪些缺失问题？ |
+| 3. 调研 | 创建/更新 `research-pack.md`，并把核心发现写回 `content-brief.md` | 是否认可调研结论？是否继续进入大纲？ |
+| 4. 大纲选项 | 创建/更新 `outline-options.md`，给 2-3 个方向和推荐 | 选哪个方向？要改 hook、观点、结构或语气吗？ |
+| 5. 最终大纲入 brief | 用户确认方向后，把最终大纲写回 `content-brief.md`，`Next Step` 改为写逐字稿 | 是否按此 brief 开始写逐字稿？ |
+| 6. 逐字稿 | 创建 `script.md` | 是否进入最终审核？ |
+| 7. 审核 | 创建 `content-review.md` | 给出状态和下一步修改建议 |
 
-First act as an Account/Strategist, not a copywriter.
+如果用户要求“继续”，只代表进入**下一阶段**，不代表授权连续完成后面所有阶段。
 
-- Identify the input type, source boundary, current certainty, likely audience, and missing context.
-- If the input is only an idea, do not invent a complete episode. Build a lightweight brief and ask for the missing decisions.
-- If the input is current, factual, public, controversial, or references real people/companies/products, plan for research before writing.
+## 工作流
 
-Read [`references/BRIEF.md`](references/BRIEF.md) before producing `content-brief.md`.
+### Phase 1 - 素材入库
 
-### Phase 2 - Brief Building
+先阅读 [`references/BRIEF.md`](references/BRIEF.md) 的素材中心规则。
 
-Produce `content-brief.md` with:
+必须先创建或更新 `source-material.md`：
 
-- Source understanding and topic boundary.
-- Creator motivation and POV.
-- Audience, platform, objective, core tension, evidence, constraints, tone.
-- Targeted questions for missing context.
-- 100-point brief readiness score.
+- 保留用户原始输入。
+- 记录所有原始链接。
+- 如果能读取全文、字幕、文章正文或关键摘录，写入本地文件。
+- 如果不能读取，写明失败原因、可替代来源和当前只能使用的内容。
+- 为每个素材分配本地编号，供 brief 引用。
 
-Brief gate:
+素材入库后，可以创建初版 `content-brief.md`，但完成 brief 后必须停下。
 
-- `80-100`: continue to research and outline.
-- `65-79`: continue only after warning the user what assumptions will be made.
-- `<65`: ask more questions before continuing unless the user explicitly overrides.
+### Phase 2 - 初版 Brief
 
-Critical missing fields always require a warning: no clear audience, no creator POV, no content objective, current-fact topic without source/search, or strong claim without evidence.
+先阅读 [`references/BRIEF.md`](references/BRIEF.md)。
 
-### Phase 3 - Research Expansion
+`content-brief.md` 必须包含：
 
-Read [`references/RESEARCH.md`](references/RESEARCH.md) before producing `research-pack.md`.
+- 素材摘要与本地素材链接。
+- 用户目标、期许、个人观点、目标受众、平台、内容目标。
+- 关键洞察、核心冲突、可能角度。
+- 缺失信息问题。
+- 100 分 readiness score。
+- `Next Step`：明确用户需要回答什么，或下一步是否进入调研。
 
-Use web search when the topic involves:
+无论分数多高，都必须停下给用户确认。
 
-- Current news, public-company or public-figure claims, product updates, regulations, platform changes, prices, or time-sensitive facts.
-- Public discourse, creator reactions, comments, examples, or how other self-media creators frame the same topic.
-- Claims that need verification before becoming a script backbone.
+### Phase 3 - 调研并回写 Brief
 
-Research should separate fact, opinion, and inspiration. Update `content-brief.md` with research-backed insight or assumptions when research changes the angle.
+先阅读 [`references/RESEARCH.md`](references/RESEARCH.md)。
 
-### Phase 4 - Outline Development
+调研结束必须：
 
-Read [`references/OUTLINE.md`](references/OUTLINE.md) before producing `outline-options.md`.
+- 创建/更新 `research-pack.md`。
+- 把核心调研结论、可用亮点、争议、事实风险、可借鉴结构写回 `content-brief.md`。
+- 如果发现原 brief 方向有问题，更新 brief 中的洞察和风险。
+- 将 `content-brief.md` 的 `Next Step` 改为“确认调研结论，进入大纲选项”。
 
-Offer 2-3 content routes and recommend one. Each route must include:
+然后停下等待用户确认。
 
-- Hook direction.
-- Core insight.
-- Argument path.
-- Examples/evidence.
-- Viewer payoff.
-- Ending action or memory point.
-- Tradeoffs and risks.
+### Phase 4 - 大纲选项
 
-Pause for user confirmation before drafting unless the user explicitly authorizes autonomous continuation.
+先阅读 [`references/OUTLINE.md`](references/OUTLINE.md)。
 
-### Phase 5 - Script Writing
+创建/更新 `outline-options.md`，给出 2-3 个中文讲法路线，并明确推荐一个。
 
-Read [`references/SCRIPT.md`](references/SCRIPT.md) before producing `script.md`.
+完成后必须停下，让用户选择路线或修改方向。不能直接写 `script.md`。
 
-Write natural spoken Chinese:
+### Phase 5 - 最终大纲写回 Brief
 
-- Conversational, specific, short, and easy to say aloud.
-- Strong hook, clear rhythm, concrete examples, and useful takeaways.
-- Low AI flavor: no fake empathy, hollow profundity, self-importance, template-heavy phrasing, or empty parallelism.
-- Preserve important facts and mark unverified claims rather than smoothing them into certainty.
+用户确认路线后：
 
-### Phase 6 - Final Review
+- 把最终路线、hook、核心洞察、段落结构、关键例子、结尾动作写回 `content-brief.md`。
+- 将 `content-brief.md` 的 `Next Step` 改为“按最终 brief 撰写中文口播逐字稿”。
 
-Read [`references/REVIEW.md`](references/REVIEW.md) before producing `content-review.md`.
+然后再次停下，等待用户确认开始写稿。
 
-Review:
+### Phase 6 - 写中文口播逐字稿
 
-- On-brief alignment.
-- Research and source use.
-- Factual risk and unsupported claims.
-- Audience usefulness and originality.
-- Structure, spoken naturalness, and AI flavor.
-- Readiness for next step.
+先阅读 [`references/SCRIPT.md`](references/SCRIPT.md)。
 
-Final status must be one of:
+创建 `script.md`：
 
-- `ready`
-- `usable-for-draft-only`
-- `blocked`
+- 必须是中文逐字稿。
+- 必须能自然说出口。
+- 必须遵守已确认的 `content-brief.md`。
+- 未确认事实要保留风险提示，不得写成确定事实。
 
-If blocked, state the minimum fixes needed before the script can be used.
+写完停下，询问是否进入最终审核。
 
-## Collaboration Rules
+### Phase 7 - 最终审核
 
-- Ask targeted questions that change the content direction; avoid generic "what do you think" questions.
-- When proceeding with assumptions, label them inside the relevant artifact.
-- Recommend a direction instead of only listing options.
-- Do not write the final script before brief and outline gates are satisfied or explicitly overridden.
-- Keep the user aware of tradeoffs in plain language.
+先阅读 [`references/REVIEW.md`](references/REVIEW.md)。
+
+创建 `content-review.md`，给出：
+
+- brief 对齐度。
+- 来源和事实风险。
+- 观众价值。
+- 结构和口播自然度。
+- AI 味检查。
+- 状态：`ready`、`usable-for-draft-only` 或 `blocked`。
+
+## 协作规则
+
+- 问题必须具体，围绕会改变内容方向的决策，不问泛泛的“你觉得怎么样”。
+- 每次对话只推进一个阶段。
+- 继续下一阶段前，必须先确认上一阶段的文件已经更新。
+- 用户可以要求修改任意阶段文件；修改后仍然回到当前断点。
+- 如果用户明确要求跳过某个断点，仍要在回复中提醒这会降低质量，并在 `content-brief.md` 记录为假设或用户覆盖。

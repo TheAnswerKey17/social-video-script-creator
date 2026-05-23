@@ -1,150 +1,128 @@
-# Outline
+# 大纲
 
-`outline-options.md` is the decision bridge between brief/research and script. It should not be a final script. It should show different ways to tell the same topic and help the user choose the strongest route.
+`outline-options.md` 是 brief 和逐字稿之间的讨论文件。它只负责提出讲法路线，不写完整口播稿。用户确认路线后，最终大纲必须回写到 `content-brief.md`。
 
-## Required Inputs
+所有内容默认使用中文。
 
-Before outlining, use:
+## 前置条件
 
+生成大纲前必须已有：
+
+- `source-material.md`
 - `content-brief.md`
-- `research-pack.md` if research was required or performed
-- User answers or explicit assumptions
+- 如果需要调研，则必须已有 `research-pack.md`
+- brief 当前 `Next Step` 指向“大纲选项”
 
-If brief readiness is below `65`, do not outline unless the user explicitly overrides.
+如果 brief 分数低于 65，不应进入大纲，除非用户明确覆盖。
 
-## `outline-options.md` Template
+## `outline-options.md` 模板
 
 ```markdown
-# Outline Options
+# 大纲选项
 
-## Brief Recap
+## Brief 摘要
 
-- Topic:
-- Audience:
-- Platform / length:
-- Creator POV:
-- Content objective:
-- Core tension / insight:
+- 选题：
+- 目标受众：
+- 平台 / 时长：
+- 用户 POV：
+- 内容目标：
+- 核心冲突 / 洞察：
 
-## Option A - <route name>
+## 选项 A - <路线名>
 
-- Best for:
-- Hook:
-- Core insight:
-- Argument path:
-- Key examples / evidence:
-- Viewer payoff:
-- Ending action / memory point:
-- Strength:
-- Risk:
+- 适合：
+- Hook：
+- 核心洞察：
+- 论证路径：
+- 关键例子 / 证据：
+- 观众收益：
+- 结尾动作 / 记忆点：
+- 优势：
+- 风险：
 
-## Option B - <route name>
+## 选项 B - <路线名>
 
-- Best for:
-- Hook:
-- Core insight:
-- Argument path:
-- Key examples / evidence:
-- Viewer payoff:
-- Ending action / memory point:
-- Strength:
-- Risk:
+- 适合：
+- Hook：
+- 核心洞察：
+- 论证路径：
+- 关键例子 / 证据：
+- 观众收益：
+- 结尾动作 / 记忆点：
+- 优势：
+- 风险：
 
-## Option C - <route name, optional>
+## 选项 C - <路线名，可选>
 
-- Best for:
-- Hook:
-- Core insight:
-- Argument path:
-- Key examples / evidence:
-- Viewer payoff:
-- Ending action / memory point:
-- Strength:
-- Risk:
+- 适合：
+- Hook：
+- 核心洞察：
+- 论证路径：
+- 关键例子 / 证据：
+- 观众收益：
+- 结尾动作 / 记忆点：
+- 优势：
+- 风险：
 
-## Recommendation
+## 推荐路线
 
-- Recommended route:
-- Why this is strongest:
-- What to borrow from other routes:
-- What to avoid:
+- 推荐：
+- 为什么最强：
+- 可以借用其他路线的部分：
+- 不建议采用：
 
-## Draft Structure
+## 等待用户确认
 
-| section | job | key point | evidence/example | retention reason |
-|---|---|---|---|---|
-| Hook | <why they stay> | <point> | <source/example> | <reason> |
-
-## Discussion Checkpoint
-
-- Decision needed:
-- Assumptions if continuing:
+- 请选择路线：
+- 是否修改 hook：
+- 是否修改核心观点：
+- 是否有语气或事实风险：
 ```
 
-## Route Types
+## 常见路线
 
-Choose 2-3 route types that genuinely fit the topic:
+- **观点解释**：先亮观点，再用事实和例子证明。
+- **教程 / 方法论**：把主题拆成步骤、原则或可复制方法。
+- **案例拆解**：用一个事件、产品或人物讲清背后模式。
+- **避坑提醒**：指出大家容易误解的地方。
+- **趋势判断**：解释发生了什么、为什么现在发生、接下来意味着什么。
+- **工具测试**：从亲自试用或实验切入。
+- **反常识重构**：挑战常见看法，但必须有证据。
+- **个人 playbook**：突出用户自己的经验、品味或工作方法。
 
-- **Hot-take explanation**: Start from a strong point of view, then justify it.
-- **Tutorial / how-to**: Turn the topic into steps, principles, or a repeatable method.
-- **Case teardown**: Use one event/person/product as a window into a larger pattern.
-- **Mistake / trap warning**: Show what people misunderstand and how to avoid it.
-- **Trend diagnosis**: Explain what changed, why now, and what it means next.
-- **Tool test / demo story**: Start from direct usage or experiment, then extract lessons.
-- **Contrarian reframing**: Challenge the common interpretation with evidence.
-- **Personal playbook**: Center the creator's own method, taste, or operating principle.
+## 推荐逻辑
 
-## Recommendation Logic
+推荐路线要优先考虑：
 
-The recommended route should maximize:
+- 是否符合用户 POV。
+- 是否对目标观众有用。
+- 是否有足够证据和例子。
+- 前 3 秒 hook 是否强。
+- 是否区别于普通摘要。
+- 是否适合目标时长。
 
-- Fit with creator POV.
-- Audience usefulness.
-- Strength of evidence/examples.
-- Hook power.
-- Differentiation from generic summaries.
-- Feasibility within target length.
+## 最终大纲回写 Brief
 
-Explain tradeoffs plainly. For example: "Option A is sharper, but needs stronger evidence; Option B is safer and more useful for beginners."
+用户确认路线后，必须更新 `content-brief.md` 的 `8. 最终大纲回写`：
 
-## Hook Patterns
+- 选定路线。
+- 最终 hook。
+- 核心洞察。
+- 逐段结构。
+- 每段的关键例子或证据。
+- 结尾动作或记忆点。
 
-Use hooks that create immediate value or tension:
-
-- Specific surprise: "I thought this was just a feature update, but the real change is..."
-- Concrete consequence: "This changes one thing about how you make content..."
-- Misunderstanding: "Most people are reading this news backwards."
-- Personal test: "I tried this workflow for one hour, and the useful part was not what I expected."
-- Stakes: "If you make tutorials, this is the part you should care about."
-
-Avoid empty hooks:
-
-- "Today we are going to talk about..."
-- "This may subvert your understanding..."
-- "In this fast-changing era..."
-- "You must watch until the end..."
-
-## Insight Framing
-
-A useful self-media insight often has this shape:
+并把 `9. 下一步` 改为：
 
 ```text
-People think this topic is about A,
-but for this audience, the real issue is B,
-so the video should help them do/notice/avoid C.
+请用户确认最终 brief，可以开始撰写 script.md 中文口播逐字稿。
 ```
 
-The outline should make this insight visible before scripting starts.
+## 强制停止
 
-## Checkpoint Rules
+生成 `outline-options.md` 后必须停下。
 
-Pause after `outline-options.md` unless the user has already said to continue autonomously.
+用户确认路线并回写 `content-brief.md` 后，也必须再次停下。
 
-When pausing, ask for a decision on:
-
-- Which route to use.
-- Whether the hook feels right.
-- Whether the creator POV is sharp enough.
-- Whether any claim, example, or tone is too risky.
-
-If the user does not choose and has authorized continuation, use the recommended route and record that assumption in `script.md` and `content-review.md`.
+不能在同一轮直接写 `script.md`。

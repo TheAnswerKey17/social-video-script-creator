@@ -1,125 +1,123 @@
-# Research
+# 调研
 
-`research-pack.md` expands the brief with outside context, verification, discourse, and inspiration. It should make the eventual script more accurate, less generic, and more aware of how the topic is being discussed.
+`research-pack.md` 是调研包，负责保存外部来源、评论、观点、原文摘录、结构灵感和事实状态。调研完成后，必须把核心结论回写到 `content-brief.md`。
 
-## When Research Is Required
+所有内容默认使用中文。
 
-Use web research when the topic includes:
+## 什么时候必须调研
 
-- Recent news, product updates, platform changes, regulations, prices, policies, market data, or release timing.
-- Public companies, public figures, institutions, creators, or named products.
-- Claims about what "people are saying", trends, backlash, user comments, or community reaction.
-- A strong factual claim that would shape the script's main argument.
-- A source the agent has not been given in full.
+以下情况必须搜索或查证：
 
-If web access is unavailable, state the limitation and mark the related claims as `needs-source`.
+- 最新新闻、产品更新、平台规则、政策、价格、发布时间、市场数据。
+- 公开公司、公开人物、机构、创作者或具体产品。
+- 用户提到“大家都在说”“很多博主都讲过”“网上评论如何”。
+- 脚本主论点依赖一个事实 claim。
+- 用户只给了链接，但没有给全文。
 
-## Research Targets
+无法联网或无法读取时，要在 `research-pack.md` 和 `content-brief.md` 里标注 `needs-source`。
 
-Search across these layers as relevant:
+## 调研对象
 
-| Layer | Purpose |
+| 层级 | 作用 |
 |---|---|
-| Original source | Confirm what the source actually says. |
-| Primary source | Company post, official doc, original video, paper, filing, policy, dataset. |
-| Credible reporting | Establish timeline, context, and factual frame. |
-| Creator discourse | See how self-media creators frame, simplify, dramatize, or teach the topic. |
-| User reactions | Capture questions, confusion, objections, praise, and skepticism. |
-| Counterarguments | Avoid one-sided scripts and find tension. |
-| Adjacent examples | Find analogies, cases, demos, or useful comparisons. |
-| Language inspiration | Collect useful phrases, hooks, terms, and structure patterns without copying. |
+| 原始来源 | 确认原文到底说了什么。 |
+| 官方 / 一手来源 | 公司公告、官方文档、原视频、论文、政策、数据。 |
+| 可靠报道 | 建立时间线、事实背景和上下文。 |
+| 创作者讨论 | 看自媒体如何简化、戏剧化、教学化这个主题。 |
+| 用户评论 | 捕捉困惑、反对、兴奋点和真实问题。 |
+| 反方观点 | 避免脚本单薄，制造张力。 |
+| 相邻案例 | 找类比、案例、测试、场景。 |
+| 表达灵感 | 收集 hook、金句、术语和结构，但不能照抄。 |
 
-Prefer primary and official sources for factual claims. Use social posts and comments for discourse signals, not as factual proof unless they are the original claim being discussed.
-
-## `research-pack.md` Template
+## `research-pack.md` 模板
 
 ```markdown
-# Research Pack
+# 调研包
 
-## Research Goal
+## 调研目标
 
-- Brief question:
-- What needs verification:
-- What needs inspiration:
+- 来自 brief 的问题：
+- 需要查证：
+- 需要找灵感：
 
-## Source Map
+## 来源地图
 
-| id | source | type | link | reliability | useful for |
+| id | 来源 | 类型 | 链接 | 可靠度 | 用途 |
 |---|---|---|---|---|---|
-| s1 | <title/name> | primary/reporting/social/commentary | <url> | high/medium/low | <fact/opinion/inspiration> |
+| R1 | <标题/作者> | 官方/报道/社媒/评论/案例 | <url> | 高/中/低 | 事实/观点/灵感 |
 
-## Fact Notes
+## 重要原文 / 摘录
 
-| claim | source_id | status | note |
+### R1 - <来源名>
+
+- 链接：
+- 获取状态：
+- 可用边界：
+
+> <短摘录或中文转述。不要大段复制受版权保护内容。>
+
+## 事实记录
+
+| claim | 来源 id | 状态 | 说明 |
 |---|---|---|---|
-| <specific fact> | s1 | confirmed/needs-source/conflicting | <short note> |
+| <具体事实> | R1 | confirmed / needs-source / conflicting / risky | <说明> |
 
-## Discourse Signals
+## 舆论与讨论信号
 
-- What creators/users are excited about:
-- What creators/users are skeptical about:
-- Common misunderstanding:
-- Common question:
-- Useful counterargument:
+- 创作者 / 用户兴奋点：
+- 创作者 / 用户质疑点：
+- 常见误解：
+- 常见问题：
+- 有用反方：
 
-## Angle Inspiration
+## 角度灵感
 
-| angle | source / signal | why useful | risk |
+| 角度 | 来源 / 信号 | 为什么有用 | 风险 |
 |---|---|---|---|
-| <angle> | <s1 or discourse> | <script value> | <risk> |
+| <角度> | R1 | <脚本价值> | <风险> |
 
-## Useful Lines and Structures
+## 可用表达与结构
 
-- Potential hook:
-- Useful phrase:
-- Example / analogy:
-- Structure pattern:
+- 潜在 hook：
+- 可借鉴表达：
+- 例子 / 类比：
+- 结构模式：
 
-## Brief Update
+## 回写到 Brief 的内容
 
-- New or changed insight:
-- Stronger content promise:
-- Evidence to use:
-- Claims to avoid or mark:
-- Remaining research gaps:
+- 新增或修正的洞察：
+- 更强的内容承诺：
+- 可用证据：
+- 需要避免或标注的 claim：
+- 剩余缺口：
 ```
 
-## Classification Rules
+## 分类规则
 
-Separate every useful item into one of three buckets:
+每条信息必须分为：
 
-- `fact`: A verifiable claim. Needs source.
-- `opinion`: A viewpoint, interpretation, critique, or creator take.
-- `inspiration`: Hook, phrase, analogy, structure, or framing idea. Do not copy directly.
+- `事实`：可查证 claim，必须有来源。
+- `观点`：解读、评价、批评、创作者看法。
+- `灵感`：hook、表达、类比、结构，只能借鉴不能复制。
 
-Do not turn opinions or comments into facts. Do not imply "the internet thinks" unless there is clear evidence and enough examples.
+不能把评论当事实，不能用少量评论代表全网观点。
 
-## Source Quality
+## 回写 Brief 的要求
 
-Use this reliability language:
+调研结束后必须更新 `content-brief.md` 的：
 
-- `high`: Official/primary source, original publication, direct transcript, dataset, reputable reporting with named sources.
-- `medium`: Established media, expert analysis, creator with direct experience, well-supported secondary summary.
-- `low`: Comments, anonymous posts, unverified screenshots, reposted claims, engagement-bait summaries.
+- `7. 调研回写`
+- `4. 策略核心` 中被调研改变的洞察、证据或风险
+- `9. 下一步`
 
-Low-reliability sources can inspire questions or angles but should not support factual claims.
+`Next Step` 必须改为：
 
-## Research Output Standards
+```text
+请用户确认调研结论和风险，确认后进入 outline-options.md 的大纲选项阶段。
+```
 
-- Include source links for anything factual or source-derived.
-- Note publication dates for time-sensitive topics.
-- Mark conflicting claims instead of forcing certainty.
-- Keep direct quotes short and only when the exact wording matters.
-- Do not over-research. Stop when the brief has enough evidence, tension, and usable angles.
+## 强制停止
 
-## When Updating the Brief
+创建/更新 `research-pack.md` 并回写 `content-brief.md` 后必须停下。
 
-Update or append to `content-brief.md` when research changes:
-
-- The working insight.
-- The recommended angle.
-- The evidence list.
-- The risk or red-line list.
-- The readiness verdict.
-
-If research disproves the original premise, say so clearly and propose a revised angle.
+不能在同一轮继续生成 `outline-options.md`，除非用户在下一条消息明确说继续进入大纲。
